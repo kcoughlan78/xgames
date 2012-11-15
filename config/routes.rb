@@ -9,9 +9,11 @@ GameStore::Application.routes.draw do
 
   get "welcome/home"
 
+
   resources :products
   resources :users
   resources :sessions
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
