@@ -21,6 +21,7 @@ GameStore::Application.routes.draw do
   # Sample of regular route:
   match '/login' => "sessions#new", :as => "login"
   match '/logout' => "sessions#destroy", :as => "logout"
+  match '/your_cart' => "carts#your_cart", :as => "your_cart"
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
