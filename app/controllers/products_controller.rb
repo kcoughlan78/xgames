@@ -84,10 +84,10 @@ class ProductsController < ApplicationController
     end
   end
 
- # def add_to_cart
-  #  @products = Product.find(params[:id])
-   #   line_items_path(:cart_id => cart)
-    #end
+  def add_to_cart
+    @products = Product.find(params[:id])
+    line_items_path(:cart_id => cart)
+  end
  # end
 
 end
