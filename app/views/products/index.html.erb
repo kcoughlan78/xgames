@@ -9,7 +9,7 @@
         <td><%= image_tag(product.image_url, class: 'list_image_url') %></td>
         <td class="list_overview">
           <dl>
-            <dt><%= product.title %></dt>
+            <dt><%= link_to product.title, product %></dt>
             <dd><%= truncate(strip_tags(product.description), length: 200) %></dd>
           </dl>
         </td>
