@@ -36,5 +36,5 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
-gem 'therubyracer'
+#gem 'therubyracer'
 gem 'seed_dump'

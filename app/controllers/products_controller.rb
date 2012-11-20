@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
 
-  before_filter :authenticate, :except => [:index, :show]
+#  before_filter :authenticate, :except => [:index, :show]
 
   def index
     @products = Product.search(params[:search])

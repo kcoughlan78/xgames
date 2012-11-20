@@ -1,6 +1,6 @@
 class Product < ActiveRecord::Base
   attr_accessible :description, :developer, :genre, :image_url, :kinect, :price,
-                  :publisher, :release_date, :title, :vat_rate
+                  :publisher, :release_date, :title, :vat_rate, :created_at, :user_id, :updated_at
 
   validates :title, :description, :image_url, :genre, presence: true
   validates :publisher, :developer, presence: true
