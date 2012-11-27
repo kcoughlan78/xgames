@@ -1,7 +1,14 @@
 <h1>Game Catalogue</h1>
+<%= paginate @products %>
+<%=  form_tag products_path, :method => 'get' do %>
+    <p>
+      <%=  text_field_tag :search_query,
+                          params[:search_query] %>
+      <%=  submit_tag "Search", :name => nil %>
+    </p>
+<% end %>
 
 <table>
-
 
   <% @products.each do |product| %>
 
@@ -30,14 +37,6 @@
       </tr>
   <% end %>
 </table>
-
-<%=  form_tag products_path, :method => 'get' do %>
-    <p>
-      <%=  text_field_tag :search_query,
-                          params[:search_query] %>
-      <%=  submit_tag "Search", :name => nil %>
-    </p>
-<% end %>
 
 <br />
 

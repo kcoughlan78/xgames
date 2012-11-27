@@ -2,7 +2,7 @@ class CreateProducts < ActiveRecord::Migration
   def change
     create_table :products do |t|
       t.string :title
-      t.string :description
+      t.text :description
       t.float :price
       t.date :release_date
       t.string :publisher
