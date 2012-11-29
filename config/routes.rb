@@ -19,9 +19,10 @@ GameStore::Application.routes.draw do
   # first created -> highest priority.
 
   # Sample of regular route:
+  match '/your_cart' => "carts#your_cart", :as => "your_cart"
   match '/login' => "sessions#new", :as => "login"
   match '/logout' => "sessions#destroy", :as => "logout"
-  match '/your_cart' => "carts#your_cart", :as => "your_cart"
+
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:

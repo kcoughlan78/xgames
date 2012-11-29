@@ -1,8 +1,11 @@
 require 'digest'
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :hashed_password, :password
+  attr_accessible :email, :hashed_password
   attr_accessor :password
+  before_save :encrypt_password
+
+  has_many :products
 
   validates :email,
             :uniqueness => true,
@@ -12,10 +15,6 @@ class User < ActiveRecord::Base
             :confirmation => true,
             :length => {:within => 4..20},
             :presence => true
-
-  before_save :encrypt_password
-
-  has_many :products
 
   def self.authenticate(email, password)
     user = find_by_email(email)
