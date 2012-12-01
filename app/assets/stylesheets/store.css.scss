@@ -10,15 +10,34 @@
     color: #226;
     border-bottom: 3px dotted #77d;
   }
+  #latest {
+    position: relative;
+    height: 100px;
+    width:100px;
+    top: 0%;
+    right: 0%;
+    bottom: 80%;
+    left: 0%;
+    z-index: 10;
+  }
+
+  .pictxt {
+    position: absolute;
+    top: 120%;
+    left: 180%;
+    width: 400px;
+    color: #8b0000;
+    font-size: 250%;
+    font-weight: 120%;
+    z-index: 15;
+  }
 
   .entry {
-    overflow: auto;
-    margin-top: 1em;
-    border-bottom: 1px dotted #77d;
     min-height: 100px;
 
     img {
       width: 80px;
+      height: 100px;
       margin-right: 5px;
       margin-bottom: 5px;
       position: absolute;

@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
 #  before_filter :authenticate, :except => [:index, :show]
 
   def index
-    @products = Product.search(params[:search])
+    @products = Product.order("title").page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -43,7 +43,7 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    @product = current_user.products.new(params[:product])
+    @product = current_user.products.create(params[:product])
 
     respond_to do |format|
       if @product.save

@@ -1,15 +1,26 @@
 <p id="notice"><%= notice %></p>
 
 <h2>Your Cart</h2>
-<ul>
+<table>
+<tr>
+<th>Title</th>
+<th>Quantity</th>
+<th>Price</th>
+</tr>
   <% for item in @cart.line_items %>
-      <li><%= item.quantity %> &times; <%= item.product.title %></li>
+	<tr>
+	<td><%= item.product.title %></td>
+	<td><%= item.quantity %></td> 
+	<td><%= item.product.price * item.quantity %></td>
+	</tr>
   <% end %>
+</table>
+<br/>
+  Total Price: <%= number_to_currency( @cart.total_price, :unit => '&euro;') %><br/>
+  <br/>
+<ul>
+  <%= button_to 'Empty cart', @cart, :method => :delete, :confirm => 'Are you sure?' %>
+  <%= button_to 'Continue shopping', store_url %>
 </ul>
-
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %>
-
-<p id="notice"><%= notice %></p>
 
 

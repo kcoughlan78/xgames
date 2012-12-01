@@ -14,7 +14,7 @@
 
 #banner {
   background: #ffffff;
-  padding: 20px;
+  padding: 30px;
   border-bottom: 2px solid;
   font: small-caps 60px/60px "Times New Roman", serif;
   color: #126907;
@@ -26,6 +26,8 @@
   }
   #header {
     position: relative;
+    text-align: right;
+    width: 600px;
     font: 10px "Courier", serif;
     font-weight: bold;
     float: right;

@@ -5,15 +5,19 @@
     <% end %>
 
 <h1>Games Store</h1>
+<div id="latest">
+<%= image_tag("far-cry-3-1.jpg") %>
+  <div class="pictxt">
+    <p>Xgames Latest and Greatest</p>
+    <p>Pre-order your copy of Far Cry 3 now</p>
+  </div>
+</div>
+<p>Welcome to Xgames check out our latest catalog <%= link_to "here", products_url %></p>
 <% @products.each do |product| %>
         <div class="entry">
           <%= image_tag(product.image_url) %>
-          <h3><%=  product.title %></h3>
-          <p><%= sanitize(product.description) %></p>
 
-          <div class="price_line">
-            <span class="price"><%= product.price %></span>
-          </div>
         </div>
+
 <% end %>
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
   <title>GameStore</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -21,9 +21,16 @@
         <%= link_to "Your Cart", :controller => "carts", :action => "your_cart" %> |
         <%= link_to "Logout", logout_path %> |
     <% else %>
-        <%= link_to "Login", login_path %>  |
-        <%= link_to "Create User", new_user_path %>
+        <%= form_tag sessions_path do %>
+            <div class="field">
+                    <%= label_tag :email %>
+                    <%= text_field_tag :email %>
+                    <%=  label_tag :password %>
+                    <%=  password_field_tag :password %>
+                    <%= submit_tag 'Login' %><br />
+            </div>
 
+    <% end %>
     <% end %>
     </div>
 
@@ -52,6 +59,7 @@
 
 </div>
 </div>
+
 
 </body>
 </html>

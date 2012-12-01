@@ -1,5 +1,5 @@
 class Cart < ActiveRecord::Base
-  #attr_accessible :cart_id, :product_id, :product
+  # attr_accessible :title, :body
   has_many :line_items, :dependent => :destroy
 
   def add_product(product)
@@ -11,6 +11,14 @@ class Cart < ActiveRecord::Base
       line_items << current_item
     end
     current_item
+  end
+
+  def total_price
+    total = 0
+    line_items.each do |line_item|
+      total += line_item.product.price * line_item.quantity
+    end
+    total
   end
 end
 
