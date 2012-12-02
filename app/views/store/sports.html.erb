@@ -1,0 +1,38 @@
+<% if notice %>
+    <p id="notice"><%=  notice %></p>
+<% end %>
+
+<h1>XGAMES: Sports Store</h1>
+<div id="latest">
+  <%= image_tag("sports.jpg") %>
+
+</div>
+<p>See below for our great collection of sport titles. Wandered here by accident??</p>
+<p>Get back to our main store page <%= link_to "here", products_url %></p>
+<table>
+
+  <% @products.each do |product| %>
+
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+        <td><%= image_tag(product.image_url, class: 'list_image_url') %></td>
+        <td class="list_overview">
+          <dl>
+            <dt><%= link_to product.title, product %></dt>
+            <dd><%= truncate(strip_tags(product.description), length: 200) %></dd>
+          </dl>
+        </td>
+        <td><%= product.price %></td>
+        <td>
+          <dl>
+            <dd>User ID:<%= product.user_id %></dd>
+          </dl>
+        </td>
+
+
+        <td class="list_actions">
+          <%= link_to 'Show', product %><br/>
+          <%= button_to "Add to Cart", line_items_path(:product_id => product) %>
+        </td>
+      </tr>
+  <% end %>
+</table>

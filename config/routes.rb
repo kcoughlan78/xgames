@@ -15,6 +15,7 @@ GameStore::Application.routes.draw do
   resources :sessions
 
 
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -72,6 +73,10 @@ GameStore::Application.routes.draw do
 
   get "welcome/thank_you"
   get "welcome/register"
+  get "store/sports"
+  get "store/kinect"
+  get "store/action"
+  get "store/driving"
 
 
   # See how all your routes lay out with "rake routes"

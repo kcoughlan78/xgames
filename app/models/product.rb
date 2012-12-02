@@ -17,6 +17,6 @@ class Product < ActiveRecord::Base
 
 
   def self.search(search_query)
-    search_query ? find(:all, :conditions => ['name LIKE ?', "%#{search_query}%"]) : find(:all)
+    search_query ? find(:all, :conditions => ['title LIKE ?', "%#{search_query}%"]) : find(:all)
   end
 end
