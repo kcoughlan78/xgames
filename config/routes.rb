@@ -77,6 +77,8 @@ GameStore::Application.routes.draw do
   get "store/kinect"
   get "store/action"
   get "store/driving"
+  get "store/family"
+  get "store/hardware"
 
 
   # See how all your routes lay out with "rake routes"

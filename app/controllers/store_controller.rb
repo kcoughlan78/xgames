@@ -1,12 +1,11 @@
 class StoreController < ApplicationController
   def index
-    @products = Product.find_all_by_genre("Sports")
+    @products = Product.find_all_by_genre("Kids")
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @products }
     end
-
 
   end
 
@@ -29,7 +28,8 @@ class StoreController < ApplicationController
   end
 
   def action
-    @products = Product.find_all_by_genre("Shooter", "Action")
+    @products = Product.find_all_by_genre("Action")
+
 
     respond_to do |format|
       format.html # action.html.erb
@@ -46,5 +46,23 @@ class StoreController < ApplicationController
     end
   end
 
+  def family
+    @products = Product.find_all_by_genre("Kids")
 
-end
+    respond_to do |format|
+      format.html # family.html.erb
+      format.json { render json: @products}
+    end
+  end
+
+  def hardware
+    @products = Product.find_all_by_genre("Hardware")
+
+    respond_to do |format|
+      format.html # hardware.html.erb
+      format.json { render json: @products}
+    end
+  end
+
+  end
+
