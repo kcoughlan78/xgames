@@ -86,6 +86,7 @@ GameStore::Application.routes.draw do
   get "store/family"
   get "store/hardware"
   get "store/bargain_basement"
+  get "store/new_release"
 
 
   # See how all your routes lay out with "rake routes"

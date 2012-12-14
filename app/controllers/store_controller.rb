@@ -1,11 +1,6 @@
 class StoreController < ApplicationController
   def index
-    @products = Product.new_release.exclude_hardware
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @products }
-    end
+    @products = Product.search(params[:search])
 
   end
 
@@ -73,6 +68,15 @@ class StoreController < ApplicationController
     end
 
 
+  end
+
+  def new_release
+    @products = Product.new_release.exclude_hardware
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @products }
+    end
   end
 
   end

@@ -16,8 +16,12 @@ class Product < ActiveRecord::Base
   has_many :list_items
 
 
-  def self.search(search_query)
-    search_query ? find(:all, :conditions => ['title LIKE ?', "%#{search_query}%"]) : find(:all)
+  def self.search(search)
+    if search
+      find(:all, :conditions => ['title LIKE ?', "%#{search}%"])
+    else
+      find(:all)
+    end
   end
 
   def self.cheaper_than(price)

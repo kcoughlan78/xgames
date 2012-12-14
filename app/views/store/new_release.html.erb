@@ -1,12 +1,16 @@
-<h1>Game Catalogue</h1>
-<%= paginate @products %>
-<%=  form_tag products_path, :method => 'get' do %>
-    <p>
-      <%=  text_field_tag :search, params[:search] %>
-      <%=  submit_tag "Search", :title => nil %>
-    </p>
+<% if notice %>
+    <p id="notice"><%=  notice %></p>
 <% end %>
 
+<h1>Games Store</h1>
+<div id="latest">
+  <%= image_tag("far-cry-3-1.jpg") %>
+  <div class="pictxt">
+    <p>Xgames Latest and Greatest</p>
+    <p>Pre-order your copy of Far Cry 3 now</p>
+  </div>
+</div>
+<p>Welcome to Xgames check out our latest catalog <%= link_to "here", products_url %></p>
 <table>
 
   <% @products.each do |product| %>
@@ -29,14 +33,9 @@
 
         <td class="list_actions">
           <%= link_to 'Show', product %><br/>
-          <%= link_to 'Edit', edit_product_path(product) %><br/>
-          <%= link_to 'Destroy', product, method: :delete, data: {confirm: 'Are you sure?'}%>
           <%= button_to "Add to Cart", line_items_path(:product_id => product) %>
+          <%= button_to "Wish List", list_items_path(:product_id => product) %>
         </td>
       </tr>
   <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Product', new_product_path %>

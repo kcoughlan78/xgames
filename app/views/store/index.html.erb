@@ -13,6 +13,12 @@
   </div>
 </div>
 <p>Welcome to Xgames check out our latest catalog <%= link_to "here", products_url %></p>
+<%=  form_tag store_path, :method => 'get' do %>
+    <p>
+      <%=  text_field_tag :search, params[:search] %>
+      <%=  submit_tag "Search", :title => nil %>
+    </p>
+<% end %>
 <table>
 
   <% @products.each do |product| %>
