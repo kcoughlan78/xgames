@@ -1,7 +1,12 @@
 GameStore::Application.routes.draw do
+  resources :list_items
+
+  resources :wish_lists
+
   resources :line_items
 
   resources :carts
+
 
   get "store/index"
 
@@ -21,6 +26,7 @@ GameStore::Application.routes.draw do
 
   # Sample of regular route:
   match '/your_cart' => "carts#your_cart", :as => "your_cart"
+  match '/your_wish_list' => "wish_lists#your_wish_list", :as => "your_wish_list"
   match '/login' => "sessions#new", :as => "login"
   match '/logout' => "sessions#destroy", :as => "logout"
 
@@ -79,6 +85,7 @@ GameStore::Application.routes.draw do
   get "store/driving"
   get "store/family"
   get "store/hardware"
+  get "store/bargain_basement"
 
 
   # See how all your routes lay out with "rake routes"

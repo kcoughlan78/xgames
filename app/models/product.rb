@@ -13,10 +13,29 @@ class Product < ActiveRecord::Base
 
   belongs_to :user
   has_many :line_items
+  has_many :list_items
 
 
   def self.search(search_query)
     search_query ? find(:all, :conditions => ['title LIKE ?', "%#{search_query}%"]) : find(:all)
   end
+
+  def self.cheaper_than(price)
+    where("price < ?", price)
+  end
+
+  scope :cheap, cheaper_than(15)
+
+  def self.dearer_than(price)
+    where("price > ?", price)
+
+  end
+
+  def self.exclude_hardware(genre)
+    where("genre != ?", genre)
+  end
+
+  scope :new_release, dearer_than(39.99)
+  scope :exclude_hardware, exclude_hardware("Hardware")
 
 end

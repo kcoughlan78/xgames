@@ -19,6 +19,7 @@
     <% if logged_in? %>
         <%= current_user.email %> |
         <%= link_to "Your Cart", :controller => "carts", :action => "your_cart" %> |
+        <%= link_to "Wish List", :controller => "wish_lists", :action => "your_wish_list" %> |
         <%= link_to "Logout", logout_path %> |
     <% else %>
         <%= form_tag sessions_path do %>
@@ -51,6 +52,7 @@
   <li><%= link_to "Driving", :controller => "store", :action => "driving" %></li>
   <li><%= link_to "Family", :controller => "store", :action => "family" %></li>
   <li><%= link_to "Hardware & Accessories", :controller => "store", :action => "hardware" %></li>
+  <li><%= link_to "Bargain Basement", :controller => "store", :action => "bargain_basement" %></li>
   <li><%= link_to "Leave Site", :controller => "welcome",:action => "thank_you" %></li>
   <li><%= link_to "Register", :controller => "welcome",:action  => "register" %></li>
   </ul>

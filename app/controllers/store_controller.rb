@@ -1,6 +1,6 @@
 class StoreController < ApplicationController
   def index
-    @products = Product.find_all_by_genre("Kids")
+    @products = Product.new_release.exclude_hardware
 
     respond_to do |format|
       format.html # index.html.erb
@@ -62,6 +62,17 @@ class StoreController < ApplicationController
       format.html # hardware.html.erb
       format.json { render json: @products}
     end
+  end
+
+  def bargain_basement
+    @products = Product.cheap
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @products }
+    end
+
+
   end
 
   end

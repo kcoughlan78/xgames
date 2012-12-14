@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Your Wish List</h2>
+
+<table>
+  <tr>
+    <th>Quantity</th>
+    <th>Title</th>
+    <th>Price</th>
+  </tr>
+
+  <% for item in @wish_list.list_items %>
+      <tr>
+        <td><%= item.quantity %></td>
+        <td><%= item.product.title %></td>
+
+      </tr>
+  <% end %>
+</table>
+
+<br/>
+<ul>
+  <%= button_to 'Remove from list', @wish_list, :method => :delete, :confirm => 'Are you sure?' %>
+  <%= button_to 'Continue shopping', store_url %>
+
+</ul>
