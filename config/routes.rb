@@ -1,4 +1,6 @@
 GameStore::Application.routes.draw do
+  resources :orders
+
   resources :list_items
 
   resources :wish_lists
