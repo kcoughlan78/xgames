@@ -14,6 +14,7 @@ class Product < ActiveRecord::Base
   belongs_to :user
   has_many :line_items
   has_many :list_items
+  has_many :trade_items
 
 
   def self.search(search)
@@ -41,5 +42,17 @@ class Product < ActiveRecord::Base
 
   scope :new_release, dearer_than(39.99)
   scope :exclude_hardware, exclude_hardware("Hardware")
+
+  def trade_value
+    trade_markdown = 0.4
+    trade_items.each do |trade_item|
+      trade_item.product.price * trade_markdown
+    end
+    trade_markdown
+  end
+
+  def pre_owned(price)
+    Product.price * 0.75; price
+  end
 
 end

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Product:</b>
+  <%= @trade_item.product_id %>
+</p>
+
+<p>
+  <b>Parcel:</b>
+  <%= @trade_item.parcel_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_trade_item_path(@trade_item) %> |
+<%= link_to 'Back', trade_items_path %>

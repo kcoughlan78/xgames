@@ -1,0 +1,21 @@
+<h1>Listing parcels</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @parcels.each do |parcel| %>
+  <tr>
+    <td><%= link_to 'Show', parcel %></td>
+    <td><%= link_to 'Edit', edit_parcel_path(parcel) %></td>
+    <td><%= link_to 'Destroy', parcel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Parcel', new_parcel_path %>

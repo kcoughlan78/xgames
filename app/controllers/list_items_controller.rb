@@ -43,17 +43,16 @@ class ListItemsController < ApplicationController
     @wish_list = current_wish_list
     product = Product.find(params[:product_id])
     @list_item = @wish_list.list_items.build
-    @list_item = @wish_list.add_product(product)
+    @list_item = @wish_list.add_wish(product)
 
-    respond_to do |format|
+    respond_to { |format|
       if @list_item.save
         format.html { redirect_to @list_item.wish_list, notice: 'List item was successfully created.' }
         format.json { render json: @list_item, status: :created, location: @list_item }
       else
         format.html { render action: "new" }
         format.json { render json: @list_item.errors, status: :unprocessable_entity }
-      end
-    end
+      end }
   end
 
   # PUT /list_items/1

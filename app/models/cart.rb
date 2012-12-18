@@ -13,6 +13,7 @@ class Cart < ActiveRecord::Base
     current_item
   end
 
+
   def total_price
     total = 0
     line_items.each do |line_item|

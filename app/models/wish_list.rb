@@ -4,15 +4,15 @@ class WishList < ActiveRecord::Base
   has_many :list_items, :dependent => :destroy
 
 
-  def add_product(product)
-    current_item = list_items.where(:product_id => product.id).first
-    if current_item
-      current_item.quantity += 1
+  def add_wish(product)
+    current_wish = list_items.where(:product_id => product.id)
+    if current_wish
+      current_wish.quantity += 1
     else
-      current_item = ListItem.new(:product_id => product.id)
-      list_items << current_item
+      current_wish = ListItem.new(:product_id => product.id)
+      list_items << current_wish
     end
-    current_item
+    current_wish
   end
 
 end

@@ -7,12 +7,15 @@
     <th>Quantity</th>
     <th>Title</th>
     <th>Price</th>
+    <th>Add to Cart</th>
   </tr>
 
   <% for item in @wish_list.list_items %>
       <tr>
         <td><%= item.quantity %></td>
         <td><%= item.product.title %></td>
+        <td><%= item.product.price %></td>
+
 
       </tr>
   <% end %>

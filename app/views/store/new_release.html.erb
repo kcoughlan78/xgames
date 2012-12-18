@@ -23,12 +23,8 @@
             <dd><%= truncate(strip_tags(product.description), length: 200) %></dd>
           </dl>
         </td>
-        <td><%= product.price %></td>
-        <td>
-          <dl>
-            <dd>User ID:<%= product.user_id %></dd>
-          </dl>
-        </td>
+        <td><%= number_to_currency(product.price, :unit => '&euro;') %></td>
+
 
 
         <td class="list_actions">

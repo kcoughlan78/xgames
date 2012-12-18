@@ -44,5 +44,14 @@ class ApplicationController < ActionController::Base
     wish_list
   end
 
+  private
+  def current_parcel
+    Parcel.find(session[:parcel_id])
+  rescue ActiveRecord::RecordNotFound
+    parcel = Parcel.create
+    session[:parcel_id] = parcel.id
+    parcel
+  end
+
 
 end
