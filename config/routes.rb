@@ -1,10 +1,15 @@
 GameStore::Application.routes.draw do
+  resources :orders
+
+  resources :list_items
 
   resources :trade_items
   resources :parcels
   resources :list_items
   resources :wish_lists
+
   resources :line_items
+
   resources :carts
 
 
@@ -23,7 +28,6 @@ GameStore::Application.routes.draw do
 
 
 
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -32,11 +36,6 @@ GameStore::Application.routes.draw do
   match '/your_wish_list' => "wish_lists#your_wish_list", :as => "your_wish_list"
   match '/login' => "sessions#new", :as => "login"
   match '/logout' => "sessions#destroy", :as => "logout"
-  match '/trade_in' => "tradeIn#index", :as => "trade_in"
-  match '/your_parcel' => "parcels#your_parcel", :as => "your_parcel"
-
-
-
 
   # Keep in mind you can assign values other than :controller and :action
 
@@ -95,8 +94,6 @@ GameStore::Application.routes.draw do
   get "store/hardware"
   get "store/bargain_basement"
   get "store/new_release"
-
-
 
 
   # See how all your routes lay out with "rake routes"
