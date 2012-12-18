@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121116134546) do
+ActiveRecord::Schema.define(:version => 20121218115346) do
 
   create_table "carts", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -24,6 +24,19 @@ ActiveRecord::Schema.define(:version => 20121116134546) do
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
     t.integer  "quantity",   :default => 1
+  end
+
+  create_table "list_items", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "wish_list_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "quantity"
+  end
+
+  create_table "parcels", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "products", :force => true do |t|
@@ -52,11 +65,24 @@ ActiveRecord::Schema.define(:version => 20121116134546) do
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
+  create_table "trade_items", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "parcel_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "quantity"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email"
     t.string   "hashed_password"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+  end
+
+  create_table "wish_lists", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
