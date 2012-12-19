@@ -3,6 +3,11 @@ class ApplicationController < ActionController::Base
 
   protected
   # returns the currently logged in user or nil if there isn't one
+  helper_method :is_admin?
+  def is_admin?
+    current_user and (current_user.admin == true) ? true : access_denied
+  end
+
   def current_user
     return unless session[:user_id]
     @current_user ||=User.find_by_id(session[:user_id])

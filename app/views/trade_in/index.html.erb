@@ -28,7 +28,7 @@
             <dd><%= truncate(strip_tags(product.description), length: 200) %></dd>
           </dl>
         </td>
-        <td><%= number_to_currency(product.price * 0.4, :unit =>'&euro;') %></td>
+        <td><%= number_to_currency(product.trade_value * product.price, :unit =>'&euro;') %></td>
 
 
 

@@ -42,7 +42,7 @@ class TradeItemsController < ApplicationController
   def create
     @parcel = current_parcel
     product = Product.find(params[:product_id])
-    @trade_item = @parcel.add_product(:product => product)
+    @trade_item = @parcel.add_product(product)
 
     respond_to do |format|
       if @trade_item.save

@@ -1,7 +1,8 @@
 class WishList < ActiveRecord::Base
-  # attr_accessible :title, :body
+   attr_accessible :user, :list_items
 
   has_many :list_items, :dependent => :destroy
+  belongs_to :user
 
 
   def add_wish(product)

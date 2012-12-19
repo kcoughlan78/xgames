@@ -57,6 +57,7 @@ class LineItemsController < ApplicationController
     end
   end
 
+
   # PUT /line_items/1
   # PUT /line_items/1.json
   def update

@@ -4,4 +4,8 @@ class TradeItem < ActiveRecord::Base
   belongs_to :product
   belongs_to :parcel
 
+  def trade_value
+    Product.price * 0.4
+  end
+
 end

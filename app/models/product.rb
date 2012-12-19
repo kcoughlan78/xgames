@@ -44,11 +44,8 @@ class Product < ActiveRecord::Base
   scope :exclude_hardware, exclude_hardware("Hardware")
 
   def trade_value
-    trade_markdown = 0.4
-    trade_items.each do |trade_item|
-      trade_item.product.price * trade_markdown
-    end
-    trade_markdown
+      0.4
+
   end
 
   def pre_owned(price)

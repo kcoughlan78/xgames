@@ -3,14 +3,14 @@ class Parcel < ActiveRecord::Base
   has_many :trade_items, :dependent => :destroy
 
   def add_product(product)
-    current_trade = trade_items.where(:product_id => product.id).first
-    if current_trade
-      current_trade.quantity += 1
+    current_item = trade_items.where(:product_id => product.id).first
+    if current_item
+      current_item.quantity += 1
     else
-      current_trade = TradeItem.new(:product_id => product.id)
-      trade_items << current_trade
+      current_item = TradeItem.new(:product_id => product.id)
+      trade_items << current_item
     end
-    current_trade
+    current_item
   end
 
   def total_price
