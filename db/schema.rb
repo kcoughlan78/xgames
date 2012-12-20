@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(:version => 20121218210605) do
   create_table "list_items", :force => true do |t|
     t.integer  "product_id"
     t.integer  "wish_list_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.integer  "quantity"
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+    t.integer  "quantity",     :default => 1
   end
 
   create_table "orders", :force => true do |t|
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(:version => 20121218210605) do
 
   create_table "products", :force => true do |t|
     t.string   "title"
-    t.string   "description"
+    t.text     "description"
     t.float    "price"
     t.date     "release_date"
     t.string   "publisher"
@@ -78,9 +78,9 @@ ActiveRecord::Schema.define(:version => 20121218210605) do
   create_table "trade_items", :force => true do |t|
     t.integer  "product_id"
     t.integer  "parcel_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "quantity"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "quantity",   :default => 1
   end
 
   create_table "users", :force => true do |t|

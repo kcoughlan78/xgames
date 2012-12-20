@@ -16,7 +16,7 @@ class Parcel < ActiveRecord::Base
   def total_price
     total = 0
     trade_items.each do |trade_item|
-      total += trade_item.product.price * trade_item.quantity
+      total += trade_item.product.price * trade_item.product.trade_value * trade_item.quantity
     end
     total
   end

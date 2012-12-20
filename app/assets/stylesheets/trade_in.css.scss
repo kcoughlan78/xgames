@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.store {
+.trade_in {
   h1 {
     margin: 0;
     padding-bottom: 0.5em;
@@ -23,8 +23,8 @@
 
   .pictxt {
     position: absolute;
-    top: 180%;
-    left: 120%;
+    top: 120%;
+    left: 180%;
     width: 400px;
     color: #8b0000;
     font-size: 250%;
@@ -105,11 +105,11 @@
   }
 
   .list_line_even {
-    background: #009900;
+    background: #009900
   }
 
   .list_line_odd {
-    background: #66CC33;
+    background: #66CC33
   }
 }
 

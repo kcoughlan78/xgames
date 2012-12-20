@@ -11,13 +11,17 @@
       <tr>
         <td><%= item.quantity %></td>
         <td><%= item.product.title %></td>
-        <td><%= number_to_currency(item.product.price * item.product.trade_value, :unit => '&euro;') %></td>
+        <td><%= number_to_currency(item.quantity * item.product.price * item.product.trade_value, :unit => '&euro;') %></td>
       </tr>
   <% end %>
 </table>
+<br/>
+Total Credit: <%= number_to_currency( @parcel.total_price, :unit => '&euro;') %><br/>
+<br/>
 
 <ul>
   <%= button_to 'Empty parcel', @parcel, :method => :delete, :confirm => 'Are you sure?' %>
+  <%= button_to 'Sell more', trade_in_path %>
 </ul>
 
 

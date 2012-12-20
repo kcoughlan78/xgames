@@ -42,8 +42,7 @@ class ListItemsController < ApplicationController
   def create
     @wish_list = current_wish_list
     product = Product.find(params[:product_id])
-    @list_item = @wish_list.list_items.build
-    @list_item = @wish_list.add_wish(product)
+    @list_item = @wish_list.add_product(product)
 
     respond_to { |format|
       if @list_item.save

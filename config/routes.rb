@@ -36,6 +36,7 @@ GameStore::Application.routes.draw do
   match '/your_wish_list' => "wish_lists#your_wish_list", :as => "your_wish_list"
   match '/login' => "sessions#new", :as => "login"
   match '/logout' => "sessions#destroy", :as => "logout"
+  match '/trade_in' => "trade_in#index", :as => "trade_in"
 
   # Keep in mind you can assign values other than :controller and :action
 

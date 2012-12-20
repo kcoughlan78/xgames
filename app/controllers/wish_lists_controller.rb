@@ -83,7 +83,7 @@ class WishListsController < ApplicationController
     @wish_list.destroy
 
     respond_to do |format|
-      format.html { redirect_to wish_lists_url }
+      format.html { redirect_to store_path }
       format.json { head :no_content }
     end
   end

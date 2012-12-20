@@ -80,7 +80,7 @@ class ParcelsController < ApplicationController
     @parcel.destroy
 
     respond_to do |format|
-      format.html { redirect_to parcels_url }
+      format.html { redirect_to trade_in_path }
       format.json { head :no_content }
     end
   end
