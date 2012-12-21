@@ -15,7 +15,7 @@
         <td><%= item.quantity %></td>
         <td><%= item.product.title %></td>
         <td><%= item.product.price %></td>
-        <td><%= button_to "Yes" %></td>
+        <td><%= button_to "Yes", line_items_path(:product_id => item.product) %></td>
       </tr>
 
   <% end %>

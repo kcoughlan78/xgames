@@ -1,6 +1,7 @@
 class Cart < ActiveRecord::Base
   # attr_accessible :title, :body
   has_many :line_items, :dependent => :destroy
+  has_many :list_items
 
   def add_product(product)
     current_item = line_items.where(:product_id => product.id).first
@@ -12,6 +13,19 @@ class Cart < ActiveRecord::Base
     end
     current_item
   end
+
+  def add_list_item(product)
+    current_item = list_items.where(:product_id => product.id).first
+    if current_item
+      current_item.quantity += 1
+    else
+      current_item = ListItem.new(:product_id => product.id)
+      list_items << current_item
+    end
+    current_item
+  end
+
+
 
 
   def total_price

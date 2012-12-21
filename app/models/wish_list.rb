@@ -16,4 +16,5 @@ class WishList < ActiveRecord::Base
     current_item
   end
 
+
 end

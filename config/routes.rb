@@ -23,6 +23,8 @@ GameStore::Application.routes.draw do
 
   get "welcome/home"
 
+  get "welcome/thank_you"
+
 
   resources :products
   resources :users
