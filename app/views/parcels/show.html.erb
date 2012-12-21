@@ -22,6 +22,7 @@ Total Credit: <%= number_to_currency( @parcel.total_price, :unit => '&euro;') %>
 <ul>
   <%= button_to 'Empty parcel', @parcel, :method => :delete, :confirm => 'Are you sure?' %>
   <%= button_to 'Sell more', trade_in_path %>
+  <%= button_to "Accept Trade In", new_trade_path, method: :get %>
 </ul>
 
 

@@ -48,8 +48,8 @@ class Product < ActiveRecord::Base
 
   end
 
-  def pre_owned(price)
-    Product.price * 0.75; price
-  end
+  #def pre_owned(price)
+   # Product.price * 0.75; price
+  #end
 
 end

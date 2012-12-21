@@ -20,6 +20,7 @@
         <%= current_user.email %> |
         <%= link_to "Your Cart", :controller => "carts", :action => "your_cart" %> |
         <%= link_to "Wish List", :controller => "wish_lists", :action => "your_wish_list" %> |
+        <%= link_to "Parcel", :controller => "parcels", :action => "your_parcel" %> |
         <%= link_to "Logout", logout_path %> |
     <% else %>
         <%= form_tag sessions_path do %>
@@ -47,6 +48,10 @@
   <ul>
   <li><%= link_to "Home", store_url %></li>
   <li><%= link_to "Product Catalogue", products_path %></li>
+  <% if current_user and current_user.admin %>
+  <li><%= link_to "Track Orders", orders_path %></li>
+  <li><%= link_to "Track Trade Ins", trades_path %></li>
+  <% end %>
   <li><%= link_to "New Releases", :controller => "store", :action => "new_release" %></li>
   <li><%= link_to "Sport Games", :controller => "store", :action => "sports" %></li>
   <li><%= link_to "Kinect", :controller => "store", :action => "kinect" %></li>
@@ -57,7 +62,7 @@
   <li><%= link_to "Bargain Basement", :controller => "store", :action => "bargain_basement" %></li>
   <li><%= link_to "Sell your games", :controller => "trade_in", :action => "index" %></li>
   <li><%= link_to "Leave Site", :controller => "welcome",:action => "thank_you" %></li>
-  <li><%= link_to "Register", :controller => "welcome",:action  => "register" %></li>
+  <li><%= link_to "Register", :controller => "users",:action  => "new" %></li>
   </ul>
   </div>
 

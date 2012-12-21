@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @trade.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @trade.address %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @trade.email %>
+</p>
+
+<p>
+  <b>Pay type:</b>
+  <%= @trade.pay_type %>
+</p>
+
+
+<%= link_to 'Edit', edit_trade_path(@trade) %> |
+<%= link_to 'Back', trades_path %>

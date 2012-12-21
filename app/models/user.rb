@@ -1,11 +1,12 @@
 require 'digest'
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :hashed_password
+  attr_accessible :email, :hashed_password, :password
   attr_accessor :password
   before_save :encrypt_password
 
   has_many :products
+  has_one :wish_list
 
 
 

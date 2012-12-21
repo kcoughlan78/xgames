@@ -15,10 +15,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user])
+    @user = User.new (params[:user])
     if @user.save
-	UserMailer.welcome_email(@user).deliver
-      redirect_to login_path, :notice => 'User creation successful!'
+	#UserMailer.welcome_email(@user).deliver
+      redirect_to store_path, :notice => 'Welcome to Xgames account creation successful!'
     else
       render :action => 'new'
     end
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'Product was successfully updated.' }
+        format.html { redirect_to @user, notice: 'Welcome to Xgames' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

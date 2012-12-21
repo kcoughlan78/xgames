@@ -1,4 +1,6 @@
 GameStore::Application.routes.draw do
+  resources :trades
+
   resources :orders
 
   resources :list_items
@@ -37,6 +39,7 @@ GameStore::Application.routes.draw do
   match '/login' => "sessions#new", :as => "login"
   match '/logout' => "sessions#destroy", :as => "logout"
   match '/trade_in' => "trade_in#index", :as => "trade_in"
+  match '/your_parcel' => "parcels#your_parcel", :as => "your_parcel"
 
   # Keep in mind you can assign values other than :controller and :action
 

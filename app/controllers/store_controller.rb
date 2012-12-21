@@ -60,7 +60,7 @@ class StoreController < ApplicationController
   end
 
   def bargain_basement
-    @products = Product.cheap
+    @products = Product.cheap.exclude_hardware
 
     respond_to do |format|
       format.html # index.html.erb
@@ -77,6 +77,17 @@ class StoreController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @products }
     end
+  end
+
+  def pre_owned
+    @products = Product
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @products }
+    end
+
+
   end
 
   end

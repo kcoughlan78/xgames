@@ -22,7 +22,9 @@
         <td><%= product.price %></td>
         <td>
           <dl>
+            <% if current_user and current_user.admin %>
             <dd>User ID:<%= product.user_id %></dd>
+            <% end %>
           </dl>
         </td>
 
