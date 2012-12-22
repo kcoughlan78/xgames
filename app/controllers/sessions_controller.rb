@@ -1,13 +1,15 @@
+#reference laptop shop tutorial 2, Wesley Gorman
 class SessionsController < ApplicationController
   def create
     if (user = User.authenticate(params[:email], params[:password]))
       session[:user_id] = user.id
-      redirect_to products_url, :notice => "Logged in successfully"
+      redirect_to store_url, :notice => "Logged in successfully"
     else
       redirect_to login_url, :alert => "Invalid login details"
 
     end
   end
+
 
   def destroy
     reset_session

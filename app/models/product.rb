@@ -24,25 +24,25 @@ class Product < ActiveRecord::Base
       find(:all)
     end
   end
-
+  #for bargain basement
   def self.cheaper_than(price)
     where("price < ?", price)
   end
 
   scope :cheap, cheaper_than(15)
-
+  #for new release
   def self.dearer_than(price)
     where("price > ?", price)
 
   end
-
+  #this code makes new release and bargain basement return better results
   def self.exclude_hardware(genre)
     where("genre != ?", genre)
   end
 
   scope :new_release, dearer_than(39.99)
   scope :exclude_hardware, exclude_hardware("Hardware")
-
+  #to apply to price in parcel
   def trade_value
       0.4
 

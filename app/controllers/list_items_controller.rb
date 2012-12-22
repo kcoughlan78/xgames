@@ -1,44 +1,31 @@
 class ListItemsController < ApplicationController
-  # GET /list_items
-  # GET /list_items.json
+
   def index
     @list_items = ListItem.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @list_items }
-    end
+
   end
 
-  # GET /list_items/1
-  # GET /list_items/1.json
+
   def show
     @list_item = ListItem.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @list_item }
-    end
+
   end
 
-  # GET /list_items/new
-  # GET /list_items/new.json
+
   def new
     @list_item = ListItem.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @list_item }
-    end
+
   end
 
-  # GET /list_items/1/edit
+
   def edit
     @list_item = ListItem.find(params[:id])
   end
 
-  # POST /list_items
-  # POST /list_items.json
+
   def create
     @wish_list = current_wish_list
     product = Product.find(params[:product_id])
@@ -54,8 +41,7 @@ class ListItemsController < ApplicationController
       end }
   end
 
-  # PUT /list_items/1
-  # PUT /list_items/1.json
+
   def update
     @list_item = ListItem.find(params[:id])
 
@@ -70,14 +56,13 @@ class ListItemsController < ApplicationController
     end
   end
 
-  # DELETE /list_items/1
-  # DELETE /list_items/1.json
+
   def destroy
     @list_item = ListItem.find(params[:id])
     @list_item.destroy
 
     respond_to do |format|
-      format.html { redirect_to list_items_url }
+      format.html { redirect_to list_item_path }
       format.json { head :no_content }
     end
   end

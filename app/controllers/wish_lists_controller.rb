@@ -1,6 +1,10 @@
 class WishListsController < ApplicationController
   # GET /wish_lists
   # GET /wish_lists.json
+
+  caches_page :your_wish_list
+  caches_page :show
+
   def index
     @wish_lists = WishList.all
 
@@ -15,10 +19,12 @@ class WishListsController < ApplicationController
   def show
     @wish_list = WishList.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @wish_list }
-    end
+    fresh_when :last_modified => @wish_list.updated_at.utc, :etag => @wish_list
+
+    #respond_to do |format|
+     # format.html # show.html.erb
+      #format.json { render json: @wish_list }
+    #end
   end
 
   def your_wish_list
@@ -45,6 +51,8 @@ class WishListsController < ApplicationController
   # POST /wish_lists.json
   def create
     @wish_list = WishList.new(params[:wish_list])
+    current_wish_list.user = current_user
+    current_wish_list.save
 
     respond_to do |format|
       if @wish_list.save

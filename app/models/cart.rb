@@ -1,7 +1,9 @@
+#reference tutorial 3 in Laptop tutorial by Wesley Gorman
+#reference Agile Web Development with Rails pg 105-111
 class Cart < ActiveRecord::Base
   # attr_accessible :title, :body
   has_many :line_items, :dependent => :destroy
-  has_many :list_items
+  has_many :list_items #works with wish list
 
   def add_product(product)
     current_item = line_items.where(:product_id => product.id).first
@@ -13,7 +15,7 @@ class Cart < ActiveRecord::Base
     end
     current_item
   end
-
+  # so we can add to cart from wish list
   def add_list_item(product)
     current_item = list_items.where(:product_id => product.id).first
     if current_item

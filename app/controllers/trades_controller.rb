@@ -1,6 +1,5 @@
 class TradesController < ApplicationController
-  # GET /trades
-  # GET /trades.json
+  before_filter :authenticate
   def index
     @trades = Trade.all
 
@@ -30,11 +29,13 @@ class TradesController < ApplicationController
       return
     end
 
+
     @trade = Trade.new
 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @trade}
+
     end
   end
 

@@ -26,6 +26,7 @@ GameStore::Application.routes.draw do
   get "welcome/thank_you"
 
 
+
   resources :products
   resources :users
   resources :sessions

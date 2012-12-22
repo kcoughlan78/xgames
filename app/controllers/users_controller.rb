@@ -1,3 +1,5 @@
+#reference laptop shop tutorial 2, Wesley Gorman
+
 class UsersController < ApplicationController
   before_filter :is_admin?
 
@@ -22,6 +24,11 @@ class UsersController < ApplicationController
     else
       render :action => 'new'
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
+
   end
 
   def edit

@@ -1,13 +1,10 @@
 class OrdersController < ApplicationController
-  # GET /orders
-  # GET /orders.json
+  before_filter :authenticate
   def index
     @orders = Order.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @orders }
-    end
+
+
   end
 
   # GET /orders/1
@@ -15,10 +12,7 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @order }
-    end
+
   end
 
   # GET /orders/new
@@ -32,19 +26,15 @@ class OrdersController < ApplicationController
   	
     @order = Order.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @order }
-    end
+
   end
 
-  # GET /orders/1/edit
+
   def edit
     @order = Order.find(params[:id])
   end
 
-  # POST /orders
-  # POST /orders.json
+
   def create
     @order = Order.new(params[:order])
 

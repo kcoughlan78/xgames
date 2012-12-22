@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<%= if logged_in? %>
 <p>
   <b>Name:</b>
   <%= @order.name %>
@@ -19,6 +20,9 @@
   <b>Pay type:</b>
   <%= @order.pay_type %>
 </p>
+<% end %>
+
+
 
 
 <%= link_to 'Edit', edit_order_path(@order) %> |

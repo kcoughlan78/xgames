@@ -1,3 +1,4 @@
+#reference tutorial 2+4 in Laptop tutorial by Wesley Gorman
 require 'digest'
 
 class User < ActiveRecord::Base
@@ -26,6 +27,11 @@ class User < ActiveRecord::Base
 
   def authenticated?(password)
     self.hashed_password == encrypt(password + "xgames" + salt)
+  end
+  #persist code for lists
+  def user_wish_list
+    current_wish_list.user = current_user
+    current_wish_list.save
   end
 
   protected
